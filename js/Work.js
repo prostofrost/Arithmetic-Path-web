@@ -9,7 +9,7 @@ function CanvasClickHandler(event) {
         // Добавляем его в путь
         gameGraph.addNodeInPath(nodeIndex);
         // Прорисовываем поле
-        gameGraph.draw(canvas);
+        //gameGraph.draw(canvas);
         // Изменяем надписи
         var needNumberTd = document.getElementById("needNumber");
         var nowNumberTd = document.getElementById("nowNumber");

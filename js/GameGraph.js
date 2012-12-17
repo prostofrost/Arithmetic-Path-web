@@ -41,9 +41,14 @@ var GameGraph = function () {
         }
         if (this.inPath(nodeIndex)) {
             var mas = new Array();
-            for (var i = 0; this.path[i] != nodeIndex; i++)
+            var curi = 0;
+            for (var i = 0; this.path[i] != nodeIndex; i++) {
                 mas.push(this.path[i]);
-            mas.push(nodeIndex);
+                curi = i;
+	    }
+	    for (var i = curi + 1; i < this.path.length; i++)
+                if(i < this.nodes.length)
+		    this.nodes[this.path[i]].draw(canvas, "#33b5e5", "#fff");
             this.path = mas;
             return 0;
         }
@@ -54,13 +59,17 @@ var GameGraph = function () {
 	var lasti = Math.floor(lastPathIndex / size);
         var lastj = lastPathIndex % size;
         if(lasti == i) {
-	    for(jj = lastj+1; jj <= j; jj++)
+	    for(jj = lastj+1; jj <= j; jj++) {
 		this.path.push(i*size + jj);
+                this.nodes[i*size + jj].draw(canvas, "#fff", "#33b5e5");
+	    }
 	    return 0;
 	}
         if(lastj == j) {
-	    for(ii = lasti+1; ii <= i; ii++)
+	    for(ii = lasti+1; ii <= i; ii++) {
 		this.path.push(ii*size + j);
+		this.nodes[ii*size + j].draw(canvas, "#fff", "#33b5e5");
+	    }
             return 0;
 	}
         return -1;
