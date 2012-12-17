@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>ArithmeticPath</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="span12 offset2 mtop4">
+        	<h1 class="pull-left">Arithmetic Path</h1>
+            <img class="margin30" src="img/wave.png" />
+        </div>
+        <div class="span12 offset1">
+        <h2>Задайте параметры игры:</h2>
+        </div>
+        <div class="row">
+        	<div class="span4 offset2">
+            <h4>Задайте размер игры:</h4>
+            	<input id="size3" type="radio" name="group2" value="3" checked>3X3<br>
+                <input id="size5" type="radio" name="group2" value="5" >5X5<br>
+                <input id="size7" type="radio" name="group2" value="7" >7X7<br>                
+                <input id="size9" type="radio" name="group2" value="9" >9X9<br>                
+                <input id="size11" type="radio" name="group2" value="11" >11X11</div>                
+           	<div class="span4">
+            	<h4>Выберите набор знаков:</h4>
+            	<input id="plus" type="radio" name="group1" value="Plus" checked>Плюс<br>
+                <input id="plusminus" type="radio" name="group1" value="PlusMinus" >Плюс и минус<br>
+                <input id="all"type="radio" name="group1" value="All" >Плюс, минус и умножение</div>                
+        </div>
+        
+        <div class="span5 pull-right mtop4"><button id = "setPosition" class="btn" onclick = "ReloadGame();">Сгенерировать новую игру!</button></div>
+        
+        <div class="span12 offset2 mtop3">
+        	<div class="row margin15">
+            	<div class="span3 mleft1"><h3 id="needNumber"></h3></div>
+            	<div class="span2-1"><img class="mtop6" src="img/wave.png" width="80px"></div>                
+            	<div class="span4"><h3 id="nowNumber"></h3></div>
+			</div>
+
+		<canvas id="gameCanvas" onclick = "CanvasClickHandler(event);"></canvas>
+
+        </div>
+        <div class="span4 pull-right mtop4 mbottom6"><button id="getAnswer" class="btn" onclick="GetAnswer();">Показать ответ</button></div>
+
+
+        <div class="row-fluid">
+          <div class="span12 mtop5 well">
+            <h4>Оставьте ваш комментарий:</h4>
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'arithmeticpath'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+          </div>
+        </div>
+    </div>
+</div>
+        
+<footer class="footer">
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+<script type="text/javascript" src="js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
+<script type = "text/javascript" src = "js/GameNode.js"></script>
+<script type = "text/javascript" src = "js/GameGraph.js"></script>
+<script type = "text/javascript" src = "js/Mouse.js"></script>
+<script type = "text/javascript" src = "js/Work.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2771922-11']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<!--script type="text/javascript" src="docs/bootstrap-button.js"></script>
+<script type="text/javascript" src="docs/bootstrap-alert.js"></script>
+
+<script type="text/javascript" src="docs/bootstrap-carousel.js"></script>
+<script type="text/javascript" src="docs/bootstrap-collapse.js"></script>
+<script type="text/javascript" src="docs/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="docs/bootstrap-popover.js"></script>
+<script type="text/javascript" src="docs/bootstrap-scrollspy.js"></script>
+<script type="text/javascript" src="docs/bootstrap-tab.js"></script>
+<script type="text/javascript" src="docs/bootstrap-transition.js"></script>
+<script type="text/javascript" src="docs/bootstrap-typeahead.js"></script>
+<script type="text/javascript" src="docs/jquery.validate.js"></script>
+<script type="text/javascript" src="docs/jquery.validate.unobtrusive.js"></script>
+<script type="text/javascript" src="docs/jquery.unobtrusive-ajax.js"></script-->
+</body></html>
