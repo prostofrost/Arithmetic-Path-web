@@ -1,6 +1,6 @@
 ﻿// Обработчик клика мыши на canvas
 function CanvasClickHandler(event) {
-	if(win == 0) {
+	if( win == 0 ) {
 	    var x = GetRelativeMouseXCoord("gameCanvas", event) / canvas.width;
 	    var y = GetRelativeMouseYCoord("gameCanvas", event) / canvas.height;
 	    // Получаем индекс узла по которому клик
@@ -16,16 +16,13 @@ function CanvasClickHandler(event) {
 	        needNumberTd.innerHTML = "Нужно набрать: " + need.toString();
 	        // Если условия выигрыша выполнены - обновляем игру
 	        if (gameGraph.nowResult() == need && nodeIndex == (gameGraph.getAllNodes().length - 1)) {
-	            //alert("Вы выиграли!");
 	        	win = 1;
-	            ReloadGame();
-	            canvas.drawImage(winimg, 0, 0);
+	        	context.drawImage(winimg, 0, 0);
 	        };
 	    }
 	}
-	else if(win == 1) {
-		win = 0;
-		gameGraph.draw(canvas);
+	else if( win == 1 ) {
+		ReloadGame();
 	}
 }
 
@@ -176,6 +173,7 @@ function ReloadGame() {
     nowNumberTd.innerHTML = "На данный момент: " + gameGraph.toString();
     needNumberTd.innerHTML = "Нужно набрать: " + need.toString();
     gameGraph.draw(canvas);
+	win = 0;
 }
 
 function GetAnswer() {
@@ -218,7 +216,6 @@ var sizex = 0;
 var sizey = 0;
 var win = 0;
 var winimg = new Image();
-winimg.onload = function(){};
 winimg.src = 'img/win.png';
 ReloadGame(3, 3);
 

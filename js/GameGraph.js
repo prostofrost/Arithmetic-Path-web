@@ -42,7 +42,7 @@ var GameGraph = function () {
         if (this.inPath(nodeIndex)) {
             var mas = new Array();
             var curi = 0;
-            for (var i = 0; this.path[i] != nodeIndex; i++) {
+            for (var i = 0; this.path[i] <= nodeIndex; i++) {
                 mas.push(this.path[i]);
                 curi = i;
 	    }
