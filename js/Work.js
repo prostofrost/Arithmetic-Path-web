@@ -1,27 +1,32 @@
 ﻿// Обработчик клика мыши на canvas
 function CanvasClickHandler(event) {
-    var x = GetRelativeMouseXCoord("gameCanvas", event) / canvas.width;
-    var y = GetRelativeMouseYCoord("gameCanvas", event) / canvas.height;
-    // Получаем индекс узла по которому клик
-    var nodeIndex = gameGraph.getNodeIndexXY(x, y);
-    // Если такой индекс разрешен (он есть, он либо справа или снизу от хвоста пути или часть пути)
-    if (nodeIndex != -1 && (gameGraph.getLastPathIndex() < nodeIndex || gameGraph.inPath(nodeIndex))) {
-        // Добавляем его в путь
-        gameGraph.addNodeInPath(nodeIndex);
-        // Прорисовываем поле
-        //gameGraph.draw(canvas);
-        // Изменяем надписи
-        var needNumberTd = document.getElementById("needNumber");
-        var nowNumberTd = document.getElementById("nowNumber");
-        nowNumberTd.innerHTML = "На данный момент: " + gameGraph.toString();
-        needNumberTd.innerHTML = "Нужно набрать: " + need.toString();
-        // Если условия выигрыша выполнены - обновляем игру
-        if (gameGraph.nowResult() == need && nodeIndex == (gameGraph.getAllNodes().length - 1)) {
-            alert("Вы выиграли!");
-            ReloadGame();
-            gameGraph.draw(canvas);
-        };
-    }
+	if(win == 0) {
+	    var x = GetRelativeMouseXCoord("gameCanvas", event) / canvas.width;
+	    var y = GetRelativeMouseYCoord("gameCanvas", event) / canvas.height;
+	    // Получаем индекс узла по которому клик
+	    var nodeIndex = gameGraph.getNodeIndexXY(x, y);
+	    // Если такой индекс разрешен (он есть, он либо справа или снизу от хвоста пути или часть пути)
+	    if (nodeIndex != -1 && (gameGraph.getLastPathIndex() < nodeIndex || gameGraph.inPath(nodeIndex))) {
+	        // Добавляем в путь и перерисовываем добавленные на канве
+	        gameGraph.addNodeInPath(nodeIndex);
+	        // Изменяем надписи
+	        var needNumberTd = document.getElementById("needNumber");
+	        var nowNumberTd = document.getElementById("nowNumber");
+	        nowNumberTd.innerHTML = "На данный момент: " + gameGraph.toString();
+	        needNumberTd.innerHTML = "Нужно набрать: " + need.toString();
+	        // Если условия выигрыша выполнены - обновляем игру
+	        if (gameGraph.nowResult() == need && nodeIndex == (gameGraph.getAllNodes().length - 1)) {
+	            //alert("Вы выиграли!");
+	        	win = 1;
+	            ReloadGame();
+	            canvas.drawImage(winimg, 0, 0);
+	        };
+	    }
+	}
+	else if(win == 1) {
+		win = 0;
+		gameGraph.draw(canvas);
+	}
 }
 
 function ReloadGame() {
@@ -211,6 +216,10 @@ var gameGraph = new GameGraph();
 var path = new Array();
 var sizex = 0;
 var sizey = 0;
+var win = 0;
+var winimg = new Image();
+winimg.onload = function(){};
+winimg.src = 'img/win.png';
 ReloadGame(3, 3);
 
 
