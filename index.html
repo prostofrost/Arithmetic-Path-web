@@ -92,31 +92,32 @@
 <script type = "text/javascript" src = "js/Mouse.js"></script>
 <script type = "text/javascript" src = "js/Work.js"></script>
 
+<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter18931471 = new Ya.Metrika({id:18931471,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-2771922-11']);
-  _gaq.push(['_trackPageview']);
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
 </script>
+<noscript><div><img src="//mc.yandex.ru/watch/18931471" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
-<!--script type="text/javascript" src="docs/bootstrap-button.js"></script>
-<script type="text/javascript" src="docs/bootstrap-alert.js"></script>
-
-<script type="text/javascript" src="docs/bootstrap-carousel.js"></script>
-<script type="text/javascript" src="docs/bootstrap-collapse.js"></script>
-<script type="text/javascript" src="docs/bootstrap-dropdown.js"></script>
-<script type="text/javascript" src="docs/bootstrap-popover.js"></script>
-<script type="text/javascript" src="docs/bootstrap-scrollspy.js"></script>
-<script type="text/javascript" src="docs/bootstrap-tab.js"></script>
-<script type="text/javascript" src="docs/bootstrap-transition.js"></script>
-<script type="text/javascript" src="docs/bootstrap-typeahead.js"></script>
-<script type="text/javascript" src="docs/jquery.validate.js"></script>
-<script type="text/javascript" src="docs/jquery.validate.unobtrusive.js"></script>
-<script type="text/javascript" src="docs/jquery.unobtrusive-ajax.js"></script-->
 </body></html>
